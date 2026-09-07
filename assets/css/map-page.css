@@ -38,6 +38,12 @@ body {
     animation: qrPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
+.map-qr a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+
 .map-qr img {
     display: block;
     width: 110px;
