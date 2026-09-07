@@ -641,10 +641,40 @@ body.guess-bg-wrong {
 
 .lahje-footer__grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr 1fr auto;
     gap: 36px;
+    align-items: start;
     position: relative;
     z-index: 1;
+}
+
+.lahje-footer__qr {
+    display: flex;
+    justify-content: center;
+    padding-inline-end: 8px;
+}
+
+.lahje-footer__qr a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+
+.lahje-footer__qr a:hover {
+    text-decoration: none;
+    transform: none;
+    color: inherit;
+}
+
+.lahje-footer__qr img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    background: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    border: 1px solid rgba(7, 102, 58, 0.12);
 }
 
 .lahje-footer__logo {
@@ -844,6 +874,10 @@ body.guess-bg-wrong {
 @media (max-width: 640px) {
     .lahje-footer__grid {
         grid-template-columns: 1fr;
+    }
+
+    .lahje-footer__qr {
+        justify-content: flex-start;
     }
 
     .lahje-footer__bar {
