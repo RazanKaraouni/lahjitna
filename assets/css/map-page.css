@@ -1,0 +1,230 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f4f1ea;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-primary, "Tajawal", Tahoma, sans-serif);
+}
+
+#mapArea {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    background: #c5dde8;
+    animation: mapFadeIn 0.55s ease both;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-qr {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px 12px;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    animation: qrPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.map-qr img {
+    display: block;
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.map-qr img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.map-title {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 10px 22px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+    font-size: 20px;
+    font-weight: 800;
+    color: #111;
+    pointer-events: none;
+    white-space: nowrap;
+    animation: mapTitleIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.map-loading {
+    position: absolute;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 241, 234, 0.85);
+    font-weight: 700;
+    font-size: 17px;
+    animation: mapPulse 1.2s ease-in-out infinite;
+}
+
+.map-loading.hidden {
+    display: none;
+}
+
+.region-label {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    font-size: 18px;
+    font-weight: 800;
+    white-space: nowrap;
+    text-align: center;
+    text-shadow: 0 0 4px #fff, 1px 1px 0 #fff, -1px -1px 0 #fff;
+    pointer-events: none;
+}
+
+.region-label--beirut {
+    font-size: 20px;
+    color: #7a0010 !important;
+    text-align: right;
+    margin-left: -5cm;
+}
+
+.leaflet-container {
+    background: #c5dde8;
+    font-family: inherit;
+}
+
+.leaflet-interactive {
+    cursor: pointer;
+    transition: fill-opacity 0.25s ease, stroke-width 0.25s ease;
+}
+
+.region-3d-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: #0d2230;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.region-3d-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#region3dMap {
+    width: 100%;
+    height: 100%;
+}
+
+.region-3d-caption {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 22px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: 800;
+    color: #111;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: mapTitleIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes mapFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes mapTitleIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes qrPop {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mapPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.72; }
+}
+
+@media (max-width: 768px) {
+    .map-qr {
+        padding: 8px 12px;
+    }
+
+    .map-qr img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .map-title {
+        font-size: 16px;
+        padding: 8px 14px;
+        top: 10px;
+    }
+
+    .region-label {
+        font-size: 14px;
+    }
+
+    .region-3d-caption {
+        font-size: 16px;
+        padding: 8px 14px;
+        top: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #mapArea,
+    .map-title,
+    .map-qr,
+    .map-loading,
+    .region-3d-caption {
+        animation: none;
+    }
+
+    .map-qr img:hover {
+        transform: none;
+    }
+}

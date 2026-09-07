@@ -1,0 +1,482 @@
+body {
+    background-color: var(--leb-light-bg);
+}
+
+.home-main {
+    padding: 0.25rem 0 2rem;
+    animation: homeMainFadeIn 0.5s ease both;
+}
+
+.hero-intro {
+    max-width: 720px;
+    margin: 0 auto 1rem;
+}
+
+.hero-intro h1 {
+    color: var(--leb-green);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.home-video-section {
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    scroll-margin-top: 88px;
+    animation: homeSectionIn 0.6s ease 0.35s both;
+}
+
+.phone-frame {
+    position: relative;
+    display: inline-block;
+    width: max-content;
+    height: auto;
+    margin: 4px auto 18px;
+    animation:
+        homeVideoReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+        homeVideoGlow 1.4s ease 0.95s both;
+    transition:
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.35s ease;
+    filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
+}
+
+.phone-frame:hover {
+    transform: translateY(-6px) scale(1.015);
+    filter: drop-shadow(0 26px 48px rgba(7, 102, 58, 0.28));
+}
+
+.phone-frame__bezel {
+    position: relative;
+    display: block;
+    width: max-content;
+    height: auto;
+    border-radius: 42px;
+    background:
+        linear-gradient(145deg, #3a3a3e 0%, #1a1a1c 22%, #111 50%, #2c2c30 100%);
+    padding: 10px;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+        inset 0 0 0 3px #0a0a0a,
+        0 0 0 1px #050505;
+}
+
+.phone-frame__bezel::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border-radius: 36px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.phone-frame__screen {
+    position: relative;
+    display: block;
+    width: max-content;
+    height: auto;
+    line-height: 0;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #000;
+}
+
+.phone-frame__screen video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(92vw, 560px);
+    max-height: min(82vh, 860px);
+    object-fit: contain;
+    background: #000;
+    animation: homeVideoFadeIn 0.65s ease 0.65s both;
+    transition: filter 0.35s ease;
+}
+
+.phone-frame:hover .phone-frame__screen video {
+    filter: brightness(1.04);
+}
+
+.phone-frame__island {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28%;
+    height: 22px;
+    background: #0a0a0a;
+    border-radius: 14px;
+    z-index: 3;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame__island::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at 35% 35%, #3d6ea8, #142033 70%);
+}
+
+.phone-frame__home {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32%;
+    height: 5px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.42);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.phone-frame__btn {
+    position: absolute;
+    background: linear-gradient(90deg, #2a2a2c, #111, #2a2a2c);
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.phone-frame__btn--silent {
+    left: -3px;
+    top: 18%;
+    width: 3px;
+    height: 22px;
+}
+
+.phone-frame__btn--vol-up {
+    left: -3px;
+    top: 28%;
+    width: 3px;
+    height: 38px;
+}
+
+.phone-frame__btn--vol-down {
+    left: -3px;
+    top: 38%;
+    width: 3px;
+    height: 38px;
+}
+
+.phone-frame__btn--power {
+    right: -3px;
+    top: 30%;
+    width: 3px;
+    height: 62px;
+}
+
+.home-divider {
+    margin: 1.25rem auto 1.5rem;
+    max-width: 720px;
+    border-top: 2px solid var(--leb-red);
+    opacity: 0.3;
+    animation: homeDividerIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.about-intro {
+    max-width: 720px;
+    margin: 1.25rem auto 0.75rem;
+    padding: 0 0.5rem;
+    animation: homeSectionIn 0.6s ease 0.15s both;
+}
+
+.about-page .home-main {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-page.is-showing-video .home-main {
+    justify-content: flex-start;
+    min-height: 0;
+}
+
+.about-video-wrap[hidden] {
+    display: none !important;
+}
+
+.about-frame {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem 1.75rem 1.7rem;
+    border: 3px solid var(--leb-red);
+    border-radius: 16px;
+    background: #fff;
+    text-align: right;
+    box-shadow: 0 8px 24px rgba(237, 28, 36, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.about-frame:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(237, 28, 36, 0.16);
+}
+
+.about-frame h1 {
+    color: var(--leb-red);
+    font-weight: 800;
+    font-size: clamp(1.45rem, 4vw, 2rem);
+    margin: 0 auto 1.1rem;
+    width: 100%;
+    text-align: center;
+    animation: homeSectionIn 0.5s ease 0.2s both;
+}
+
+.about-frame p {
+    margin: 0 0 1rem;
+    color: var(--ink);
+    font-size: clamp(1rem, 2.4vw, 1.08rem);
+    line-height: 1.85;
+    animation: homeSectionIn 0.5s ease both;
+}
+
+.about-frame p:nth-of-type(1) { animation-delay: 0.28s; }
+.about-frame p:nth-of-type(2) { animation-delay: 0.38s; }
+
+.about-frame .about-tagline {
+    margin: 1.15rem 0 0;
+    color: var(--leb-green);
+    font-weight: 800;
+    font-size: clamp(1.08rem, 2.6vw, 1.2rem);
+    animation-delay: 0.48s;
+}
+
+.about-scroll-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.35rem;
+}
+
+.about-scroll-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0;
+    padding: 11px 26px;
+    background: var(--leb-red);
+    color: var(--leb-white);
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    box-shadow: 0 10px 22px rgba(237, 28, 36, 0.28);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    animation: homeSectionIn 0.5s ease 0.58s both;
+}
+
+.about-scroll-btn i {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-scroll-btn:hover {
+    background: #c91820;
+    color: var(--leb-white);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(237, 28, 36, 0.36);
+}
+
+.about-scroll-btn:hover i {
+    transform: translateY(3px);
+}
+
+@keyframes homeMainFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes homeSectionIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes homeVideoReveal {
+    from {
+        opacity: 0;
+        transform: translateY(36px) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes homeVideoFadeIn {
+    from {
+        opacity: 0;
+        filter: blur(6px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes homeVideoGlow {
+    0% {
+        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
+    }
+    35% {
+        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28))
+            drop-shadow(0 0 18px rgba(237, 28, 36, 0.35))
+            drop-shadow(0 0 28px rgba(7, 102, 58, 0.28));
+    }
+    100% {
+        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
+    }
+}
+
+@keyframes homeDividerIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 0.3;
+        transform: scaleX(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-main,
+    .home-video-section,
+    .phone-frame,
+    .phone-frame__screen video,
+    .home-divider,
+    .about-intro,
+    .about-frame h1,
+    .about-frame p,
+    .about-scroll-btn {
+        animation: none;
+    }
+
+    .about-frame:hover,
+    .about-scroll-btn:hover {
+        transform: none;
+    }
+
+    .phone-frame:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .about-intro {
+        padding: 0;
+    }
+
+    .about-frame {
+        padding: 1.25rem 1.1rem 1.35rem;
+        border-width: 2px;
+        border-radius: 12px;
+    }
+
+    .about-scroll-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-frame__screen video {
+        max-width: min(92vw, 100%);
+    }
+
+    .phone-frame__bezel {
+        border-radius: 36px;
+        padding: 8px;
+    }
+
+    .phone-frame__screen {
+        border-radius: 28px;
+    }
+}
+
+.home-map-section {
+    margin-bottom: 1rem;
+}
+
+.map-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 3px solid var(--leb-green);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.map-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(237, 28, 36, 0.25);
+    border-color: var(--leb-red);
+    color: inherit;
+}
+
+.map-card-image {
+    height: 220px;
+    background:
+        linear-gradient(135deg, rgba(7, 102, 58, 0.85), rgba(237, 28, 36, 0.75)),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Lebanon_location_map.svg/640px-Lebanon_location_map.svg.png') center/cover;
+}
+
+.map-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 24px;
+    background: rgba(7, 102, 58, 0.88);
+    transition: background 0.3s ease;
+    text-align: center;
+    color: var(--leb-white);
+}
+
+.map-card:hover .map-overlay {
+    background: rgba(237, 28, 36, 0.92);
+}
+
+.map-overlay h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-leb-action {
+    background-color: var(--leb-white);
+    color: var(--leb-green);
+    border: 2px solid var(--leb-white);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.map-card:hover .btn-leb-action {
+    color: var(--leb-red);
+}
+
+.text-leb-red {
+    color: var(--leb-red);
+}
+
+.text-leb-green {
+    color: var(--leb-green);
+}

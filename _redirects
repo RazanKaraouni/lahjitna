@@ -1,0 +1,6 @@
+/scripts/* /index.html 404!
+/node_modules/* /index.html 404!
+/tmp/* /index.html 404!
+/package.json /index.html 404!
+/package-lock.json /index.html 404!
+/.gitignore /index.html 404!

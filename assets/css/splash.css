@@ -1,0 +1,198 @@
+.splash-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        linear-gradient(160deg, rgba(7, 102, 58, 0.97) 0%, rgba(4, 62, 35, 0.98) 55%, rgba(7, 102, 58, 0.95) 100%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 28px);
+    color: var(--leb-white);
+}
+
+.splash-page .custom-navbar {
+    background-color: rgba(7, 102, 58, 0.95);
+}
+
+@media (max-width: 991.98px) {
+    .splash-page .custom-navbar .navbar-collapse {
+        background: rgba(4, 62, 35, 0.98);
+    }
+}
+
+.splash-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+}
+
+.splash-content {
+    text-align: center;
+    max-width: 520px;
+    animation: splashFadeIn 0.7s ease both;
+}
+
+.splash-logo {
+    width: clamp(120px, 28vw, 180px);
+    height: clamp(120px, 28vw, 180px);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--leb-white);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    margin-bottom: 28px;
+    animation: splashScaleIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.splash-logo:hover {
+    transform: scale(1.05) rotate(-3deg);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.34);
+}
+
+.splash-title {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+    letter-spacing: 1px;
+    animation: splashSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.splash-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 36px;
+    font-weight: 300;
+    animation: splashSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.splash-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    animation: splashSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.splash-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: var(--leb-red);
+    color: var(--leb-white);
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    box-shadow: 0 14px 32px rgba(237, 28, 36, 0.35);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.splash-cta i {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash-cta--guess {
+    background: var(--leb-white);
+    color: var(--leb-green);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+}
+
+.splash-cta--map {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: none;
+}
+
+.splash-cta:hover {
+    background: #c91820;
+    color: var(--leb-white);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px rgba(237, 28, 36, 0.45);
+}
+
+.splash-cta:hover i {
+    transform: translateX(-4px);
+}
+
+.splash-cta--guess:hover {
+    background: #f4f6f4;
+    color: var(--leb-green-dark);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+}
+
+.splash-cta--map:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--leb-white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.splash-cta:active {
+    transform: translateY(-1px);
+}
+
+.splash-footer {
+    animation: splashFadeIn 0.6s ease 0.7s both;
+}
+
+@keyframes splashFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes splashSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes splashScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash-content,
+    .splash-logo,
+    .splash-title,
+    .splash-tagline,
+    .splash-actions,
+    .splash-cta,
+    .splash-footer {
+        animation: none;
+    }
+
+    .splash-logo:hover,
+    .splash-cta:hover,
+    .splash-cta:hover i {
+        transform: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .splash-main {
+        padding: 28px 16px;
+    }
+
+    .splash-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .splash-cta {
+        width: 100%;
+    }
+}

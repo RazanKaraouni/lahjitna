@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net; media-src 'self'; connect-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'none'; upgrade-insecure-requests">
+    <link rel="icon" href="assets/logo.jpeg" type="image/jpeg">
+    <meta name="description" content="لهجتنا - منصة لاستكشاف اللهجات اللبنانية عبر خريطة تفاعلية">
+    <title>لهجتنا - اكتشف لهجات لبنان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body class="about-page">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar shadow-sm">
+        <div class="container position-relative">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold fs-3 text-white" href="index.html">
+                <img src="assets/logo.jpeg" alt="لهجتنا Logo" class="d-inline-block align-text-top rounded-circle border border-white">
+                <span>لهجتنا</span>
+            </a>
+            <span class="navbar-page-title">تعرّف علينا</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="about.html">تعرّف علينا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="map.html">الخريطة</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container home-main">
+        <section class="about-intro" aria-labelledby="aboutHeading">
+            <div class="about-frame">
+                <h1 id="aboutHeading">تعرّف علينا</h1>
+                <p>
+                    لهجتنا موقع ثقافي رقمي يسلّط الضوء على تنوّع اللهجات اللبنانية، ويعرّف بخصائصها وكلماتها وتعبيراتها المختلفة.
+                </p>
+                <p>
+                    نسعى من خلال الموقع إلى توثيق هذا التنوع اللغوي، والتعرّف إلى اللهجات من خلال قصص وتجارب المتحدثين بها، بطريقة تفاعلية تجمع بين الثقافة والتراث والتكنولوجيا.
+                </p>
+                <p class="about-tagline">لهجتنا… من القلب للهوية</p>
+                <div class="about-scroll-wrap">
+                    <a class="about-scroll-btn" href="#aboutVideo" id="aboutScrollBtn">
+                        تعرّف علينا
+                        <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div id="aboutVideoWrap" class="about-video-wrap" hidden>
+        <hr class="home-divider">
+
+        <section id="aboutVideo" class="text-center home-video-section">
+            <div class="phone-frame" aria-label="هاتف يعرض فيديو التعريف">
+                <span class="phone-frame__btn phone-frame__btn--silent" aria-hidden="true"></span>
+                <span class="phone-frame__btn phone-frame__btn--vol-up" aria-hidden="true"></span>
+                <span class="phone-frame__btn phone-frame__btn--vol-down" aria-hidden="true"></span>
+                <span class="phone-frame__btn phone-frame__btn--power" aria-hidden="true"></span>
+                <div class="phone-frame__bezel">
+                    <div class="phone-frame__screen">
+                        <span class="phone-frame__island" aria-hidden="true"></span>
+                        <video id="introVideo" controls playsinline>
+                            <source src="assets/introduction.mp4" type="video/mp4">
+                            المتصفح لا يدعم عرض الفيديو.
+                        </video>
+                        <span class="phone-frame__home" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <img src="assets/logo.jpeg" alt="شعار لهجتنا" class="site-footer__logo">
+        <p class="mb-0">© لهجتنا — حفظ التنوّع اللغوي اللبناني</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/about-video.js"></script>
+</body>
+</html>
