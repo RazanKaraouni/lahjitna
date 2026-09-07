@@ -3,8 +3,9 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: #f4f1ea;
 }
 
@@ -16,8 +17,9 @@ body {
 
 #mapArea {
     position: relative;
-    flex: 1 1 auto;
-    min-height: 0;
+    flex: 0 0 auto;
+    height: 88vh;
+    min-height: 560px;
     background: #c5dde8;
     animation: mapFadeIn 0.55s ease both;
 }
@@ -32,7 +34,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 16px 12px;
+    padding: 36px 16px 40px;
+    margin-top: 8px;
     background: #fff;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     animation: qrPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
@@ -46,8 +49,8 @@ body {
 
 .map-qr img {
     display: block;
-    width: 110px;
-    height: 110px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     background: #fff;
     border-radius: 8px;
@@ -195,13 +198,18 @@ body {
 }
 
 @media (max-width: 768px) {
+    #mapArea {
+        height: 80vh;
+        min-height: 420px;
+    }
+
     .map-qr {
-        padding: 8px 12px;
+        padding: 28px 12px 32px;
     }
 
     .map-qr img {
-        width: 80px;
-        height: 80px;
+        width: 150px;
+        height: 150px;
     }
 
     .map-title {
