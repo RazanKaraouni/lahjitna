@@ -630,6 +630,12 @@ body.guess-bg-wrong {
     padding: 48px 28px 28px;
 }
 
+@media (min-width: 992px) {
+    .lahje-footer__inner {
+        padding-left: 168px;
+    }
+}
+
 .lahje-footer__leaf {
     position: absolute;
     left: -10px;
@@ -641,7 +647,7 @@ body.guess-bg-wrong {
 
 .lahje-footer__grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr auto;
+    grid-template-columns: 1.3fr 1fr 1fr;
     gap: 36px;
     align-items: start;
     position: relative;
@@ -649,9 +655,10 @@ body.guess-bg-wrong {
 }
 
 .lahje-footer__qr {
-    display: flex;
-    justify-content: center;
-    padding-inline-end: 8px;
+    position: absolute;
+    left: 16px;
+    top: 48px;
+    z-index: 2;
 }
 
 .lahje-footer__qr a {
@@ -672,9 +679,10 @@ body.guess-bg-wrong {
     height: 120px;
     object-fit: contain;
     background: #fff;
-    padding: 6px;
-    border-radius: 10px;
-    border: 1px solid rgba(7, 102, 58, 0.12);
+    padding: 8px;
+    border-radius: 12px;
+    border: 4px solid var(--leb-green);
+    box-shadow: 0 0 0 2px #fff;
 }
 
 .lahje-footer__logo {
@@ -869,15 +877,18 @@ body.guess-bg-wrong {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
     }
+
+    .lahje-footer__qr {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 28px 0;
+    }
 }
 
 @media (max-width: 640px) {
     .lahje-footer__grid {
         grid-template-columns: 1fr;
-    }
-
-    .lahje-footer__qr {
-        justify-content: flex-start;
     }
 
     .lahje-footer__bar {

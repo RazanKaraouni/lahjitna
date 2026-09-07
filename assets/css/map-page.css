@@ -3,9 +3,8 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 100%;
+    overflow: hidden;
     background: #f4f1ea;
 }
 
@@ -17,10 +16,8 @@ body {
 
 #mapArea {
     position: relative;
-    flex: 0 0 auto;
-    width: 100%;
-    height: 100dvh;
-    min-height: 100dvh;
+    flex: 1 1 auto;
+    min-height: 0;
     background: #c5dde8;
     animation: mapFadeIn 0.55s ease both;
 }
@@ -28,41 +25,6 @@ body {
 #map {
     width: 100%;
     height: 100%;
-}
-
-.map-qr {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100dvh;
-    padding: 48px 16px;
-    margin: 0;
-    background: #fff;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    animation: qrPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
-}
-
-.map-qr a {
-    display: block;
-    line-height: 0;
-    text-decoration: none;
-}
-
-.map-qr img {
-    display: block;
-    width: 240px;
-    height: 240px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 8px;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-}
-
-.map-qr img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .map-title {
@@ -184,38 +146,12 @@ body {
     }
 }
 
-@keyframes qrPop {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes mapPulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.72; }
 }
 
 @media (max-width: 768px) {
-    #mapArea {
-        height: 100dvh;
-        min-height: 100dvh;
-    }
-
-    .map-qr {
-        min-height: 100dvh;
-        padding: 40px 12px;
-    }
-
-    .map-qr img {
-        width: 180px;
-        height: 180px;
-    }
-
     .map-title {
         font-size: 16px;
         padding: 8px 14px;
@@ -236,13 +172,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
     #mapArea,
     .map-title,
-    .map-qr,
     .map-loading,
     .region-3d-caption {
         animation: none;
-    }
-
-    .map-qr img:hover {
-        transform: none;
     }
 }
